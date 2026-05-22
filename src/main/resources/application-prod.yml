@@ -3,13 +3,22 @@ spring:
     aws:
       region:
         static: ap-northeast-2
+      s3:
+        bucket: ${S3_BUCKET_NAME}
+
   config:
     import: aws-parameterstore:/camp-health-app/prod/
+
   datasource:
     url: ${DB_URL}
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
 
   jpa:
     show-sql: true
@@ -21,6 +30,7 @@ management:
   endpoint:
     health:
       show-details: never
+
   info:
     env:
       enabled: true
@@ -28,6 +38,8 @@ management:
 info:
   app:
     message: ${APP_MESSAGE}
+  team:
+    name: ${TEAM_NAME}
 
 logging:
   level:
