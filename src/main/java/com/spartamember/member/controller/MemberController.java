@@ -40,12 +40,12 @@ public class MemberController {
 	@PostMapping("/{id}/profile-image")
 	public ResponseEntity<S3UploadResponse> updateProfileImage(@PathVariable Long id, @RequestParam("file") MultipartFile file) {
 		String key = memberService.updateProfileImage(id, file);
-		return ResponseEntity.ok(new S3UploadResponse(key));
+		return ResponseEntity.status(HttpStatus.OK).body(new S3UploadResponse(key));
 	}
 
 	@GetMapping("/{id}/profile-image")
 	public ResponseEntity<S3DownloadUrlResponse> getDownloadUrl(@PathVariable Long id) {
 		String url = memberService.getProfileImageDownloadUrl(id);
-		return ResponseEntity.ok(new S3DownloadUrlResponse(url));
+		return ResponseEntity.status(HttpStatus.OK).body(new S3DownloadUrlResponse(url));
 	}
 }
