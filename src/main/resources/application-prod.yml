@@ -3,8 +3,10 @@ spring:
     aws:
       region:
         static: ap-northeast-2
+
   config:
     import: aws-parameterstore:/camp-health-app/prod/
+
   datasource:
     url: ${DB_URL}
     username: ${DB_USERNAME}
@@ -21,6 +23,7 @@ management:
   endpoint:
     health:
       show-details: never
+
   info:
     env:
       enabled: true
@@ -28,6 +31,8 @@ management:
 info:
   app:
     message: ${APP_MESSAGE}
+  team:
+    name: ${TEAM_NAME}
 
 logging:
   level:
