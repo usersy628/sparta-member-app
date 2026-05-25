@@ -7,6 +7,8 @@ on:
       - develop
       - lv3
       - lv4
+      - lv5
+      - lv6
   pull_request:
 
 jobs:
