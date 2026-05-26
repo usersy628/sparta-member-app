@@ -1,6 +1,70 @@
-# sparta-member-app
+# Sparta Member App
 
-## 필수과제
+Spring Boot 기반의 회원 관리 API 프로젝트입니다.  
+로컬 개발 환경부터 AWS EC2, RDS, S3, Docker, GitHub Actions CI/CD까지 단계적으로 확장하며 배포 환경을 구성했습니다.
+
+## 프로젝트 목표
+
+이 프로젝트의 목표는 단순한 Spring Boot API 서버를 운영 환경에 가깝게 배포해보는 것입니다.
+
+---
+
+## 기술 스택
+
+### Backend
+
+- Java 21
+- Spring Boot
+- Spring Web
+- Spring Data JPA
+- Spring Boot Actuator
+- Gradle
+
+### Database
+
+- H2 Database
+- MySQL
+- AWS RDS MySQL
+
+### Infra / DevOps
+
+- AWS EC2
+- AWS RDS
+- AWS S3
+- Docker
+- Docker Hub
+- GitHub Actions
+
+---
+
+## 주요 기능
+
+### 회원 API
+
+- 회원 생성
+- 회원 조회
+- 회원 목록 조회
+- 회원 수정
+- 회원 삭제
+
+### 프로필 이미지 업로드
+
+- MultipartFile 기반 이미지 업로드
+- AWS S3에 이미지 파일 저장
+- 업로드된 이미지의 S3 key 반환
+- 회원 정보에 프로필 이미지 key 저장
+
+### 운영 환경 기능
+
+- local / prod 프로필 분리
+- RDS MySQL 연결
+- API 요청 로그 출력
+- 예외 발생 시 ERROR 로그 출력
+- `/actuator/health` 헬스체크 제공
+
+---
+
+## 과제 제출 요구사항
 
 ### LV 0 - 요금 폭탄 방지 AWS Budget 설정
 AWS Budgets에서 월 예산을 $100 와 예산의 80% 도달 시 이메일 알림이 오도록 설정
@@ -26,9 +90,6 @@ ec2 퍼블릭 ip - 3.38.163.245
 - Presigned URL: https://camp-health-kimsy628-files.s3.ap-northeast-2.amazonaws.com/uploads/fa28fb18-05ce-4b48-9615-33b546caa25c_LV%202%20-%20RDS%20%EB%B3%B4%EC%95%88%20%EA%B7%B8%EB%A3%B9%20%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7.png?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEKb%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDmFwLW5vcnRoZWFzdC0yIkcwRQIhAMzIbarRrrNPkReAcVr9b88ezm4TIq73vVWsWfgNPWVMAiAcStUDZ53kHzXi8EXAUiGIlOoZIs7TSTMvydymVl6zzSrKBQhvEAAaDDQ0MzU2ODc4NTQ1MyIM0alsuk6%2B6U%2F6w5eHKqcFDFpE5O2iI%2B%2FAGxDRB1px%2B5c8zyvY1NS90Y0NI4%2FBWWqbzYm2XK4DFQGH1xdFG%2FneH%2FboLP%2FgJKp42CiY0yUDT7DbyvZENRMdJWZ57VrH%2FZTIhpwH%2Bh%2FdDZa7haHP7i8UrkLJ4nLlhjWE5MaM%2BhhTVRUxZAgNkUYj3NWwcCIWBPLzY1VfNu5E7aMXT1jA7POCvKcgzR%2BqrUNHzOt5vChL117GFnTnEBnqahgi04T02o6iba4YXsUq480%2Bp47guMVyh3pXihYB9oQp%2Fg93psnsl3DXFBqseVyaotry7sXpDmXM0sxgVXCnOzKFQdzj%2FG2ow8h%2B0%2BPv4QdOOBBGPFn5VGTGdTeST7vRNYgBQonlCceMY64H9jNO6dBh5dvNnVFFgXbTRLdWRyy84HlaDQujbOMquMBccOc%2FH5dZAUSVqTideD0lUg8i1%2B5WpgN2r0goqgtPLbxCETK0wl%2Fqj2O0CYybgNyoufZOUYFSx2b4oSzRDS3J3LF57VLKsg4njY6rRFKA9tuH%2BivR6Upzdocqu%2F%2B0W5M2TEgxlPliAHoni50BQMH5xABhHnGxLx%2FJBThrohpdjQyH%2BaiDNSOezxx2UXJOMphd1eaCzZAZXoNqAn%2Bz%2Fxq77QcfG6cn6fDsT4SwzVY9Lgg4%2BP8JVdscePFmxhiIk95VT1iUqQ49H5V5h2ujwrtWFkMvp9Nfw%2FtzeXS0cdfpN9pzkIO07PM%2BN3%2BHOzrfdL9int77Dqg6qAwUNlCph6HoLKtDaXtxfHL4%2BWDfApuNwdgBjb119SLAKh2zRcLJeqoM9TxvYPGl%2FB8TPs8QAuTpazaJ3Rhf5HIcEDhGkctw%2Fih9N8tC2RQuFo%2FnKsaH39at1ikKepUMKn6B3qS77ES0vnRZXWZKtwuG0uIyDcPOLDiwETDLkdPQBjqxAbaJYy585JNP%2Ba%2FZn52IoM7qe7COu11t9ilkDYMb45Gc%2FXhPbv1CfyRIwlXq%2FGkih5P36CN%2BN6IF3XQhRSxE7czw%2BSmguV6MIxs8MxZPPCziHnv9ihyNVOl8G0RBCO6Va2hKTJ5Jb9xnhLc%2F8JDjdmnQFJ3INbbnq1ALJ33Kk%2F4ThQRWJH4o%2BVfVCTD9A1a%2FGodcr1QPcsyIpDY%2BW2PDwMU6yPJBknoopnJA%2F3bcoS5lkg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260525T223032Z&X-Amz-SignedHeaders=host&X-Amz-Credential=ASIAWORWCRAW26DPI3ND%2F20260525%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Expires=604800&X-Amz-Signature=a4195b4059c4b690737fbd3aab404bebd7a02540f107f681f9d8711020b51c92
 - X-Amz-Expires = 604800
 - 만료 시간: 2026-06-02 07:30:32 KST
-
-
-## 도전과제
 
 ### LV 4 - Docker & CI/CD 파이프라인 구축
 1. Github Actions 성공 이미지
