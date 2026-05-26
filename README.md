@@ -7,6 +7,8 @@ Spring Boot 기반의 회원 관리 API 프로젝트입니다.
 
 이 프로젝트의 목표는 단순한 Spring Boot API 서버를 운영 환경에 가깝게 배포해보는 것입니다.
 
+## 블로그
+https://velog.io/@kimsy628/CH4-%EA%B3%BC%EC%A0%9C-%ED%8A%B8%EB%9F%AC%EB%B8%94%EC%8A%88%ED%8C%85
 ---
 
 ## 기술 스택
