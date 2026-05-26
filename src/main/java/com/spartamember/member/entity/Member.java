@@ -1,5 +1,6 @@
 package com.spartamember.member.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,9 +22,16 @@ public class Member {
 	private int age;
 	private String mbti;
 
+	@Column(name = "profile_image_key")
+	private String profileImageKey;
+
 	public Member(String memberName, int age, String mbti) {
 		this.memberName = memberName;
 		this.age = age;
 		this.mbti = mbti;
+	}
+
+	public void updateProfileImageKey(String profileImageKey) {
+		this.profileImageKey = profileImageKey;
 	}
 }

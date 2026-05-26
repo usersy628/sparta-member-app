@@ -10,4 +10,5 @@ public class MemberCreateRequest {
 	private String memberName;
 	private int age;
 	private String mbti;
+	private String profileImageKey;
 }
